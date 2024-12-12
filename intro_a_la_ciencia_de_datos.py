@@ -140,17 +140,20 @@ def rango_intercuartilico(lista):
     Q1_index2 = Q1_index1-1
     Q3_index1 = (len(lista)*3)//4
     Q3_index2 = Q3_index1-1
-    Q1 = (lista[Q1_index1] + lista[Q1_index2])/2
-    Q3 = (lista[Q3_index1] + lista[Q3_index2])/2
+    Q1 = (float(lista[Q1_index1]) + float(lista[Q1_index2]))/2
+    Q3 = (float(lista[Q3_index1]) + float(lista[Q3_index2]))/2
 
   else:
     Q1_index = len(lista)//4
     Q3_index = (len(lista)*3)//4
-    Q1 = lista[Q1_index]
-    Q3 = lista[Q3_index]
+    Q1 = float(lista[Q1_index])
+    Q3 = float(lista[Q3_index])
 
   IQR = Q3-Q1
   return IQR
+
+listax = [1,2,6,2,4,6,2,54,7,3,4,1,5]
+rangox = rango_intercuartilico(listax)
 
 def MAD(lista):
   """
