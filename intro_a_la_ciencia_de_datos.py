@@ -133,31 +133,24 @@ def rango_intercuartilico(lista):
   Input:
     lista: lista con datos numérios
   Output:
-    cuartiles: lista conteniendo los cuartiles 1, 2 y 3
+    cuartiles: valor numérico correspondiente al rango intercuartílico
   """
-  cuartiles = []
   if len(lista)%2==0:
     Q1_index1 = len(lista)//4
     Q1_index2 = Q1_index1-1
-    Q2_index1 = len(lista)//2
-    Q2_index2 = Q2_index1-1
     Q3_index1 = (len(lista)*3)//4
     Q3_index2 = Q3_index1-1
     Q1 = (lista[Q1_index1] + lista[Q1_index2])/2
-    Q2 = (lista[Q2_index1] + lista[Q2_index2])/2
     Q3 = (lista[Q3_index1] + lista[Q3_index2])/2
 
   else:
     Q1_index = len(lista)//4
-    Q2_index = len(lista)//2
     Q3_index = (len(lista)*3)//4
     Q1 = lista[Q1_index]
-    Q2 = lista[Q2_index]
     Q3 = lista[Q3_index]
-  cuartiles.append(Q1)
-  cuartiles.append(Q2)
-  cuartiles.append(Q3)
-  return cuartiles
+
+  IQR = Q3-Q1
+  return IQR
 
 def MAD(lista):
   """
