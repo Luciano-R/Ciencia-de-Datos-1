@@ -122,8 +122,12 @@ def desviacion_estandar(lista):
   Output:
     desviacion: la raiz de la varianza
   """
-  var = varianza(lista)
-  desviacion = (var)**(1/2)
+  sum = 0
+  N = len(lista)
+  prom_lista = promedio(lista)
+  for i in lista:
+    sum += ((i-prom_lista)**2)
+  desviacion = ( (1/N)*sum )**( 1/2 )
   return desviacion
 
 def cuartiles(lista):
