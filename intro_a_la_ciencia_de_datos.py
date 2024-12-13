@@ -39,7 +39,7 @@ def mediana(lista):
     med2 = lista[n//2]
     meds.append(med1)
     meds.append(med2)
-    media = int(promedio(meds))
+    media = float(promedio(meds))
     return media
   else:
     media = lista[(n//2)]
@@ -106,8 +106,8 @@ def varianza(lista):
   N = len(lista)
   sum = 0
   for elem in lista:
-    wea = (elem-x)**2
-    sum += wea
+    wea = (elem-x)
+    sum += wea**2
 
   varianza = (1/N)*(sum)
 
@@ -186,7 +186,7 @@ def covarianza(x,y):
   sum = 0
   for i,j in zip(x,y):
     sum += ( (i-x_prom)*(j-y_prom) )
-  cov = sum/N
+  cov = ( 1/N )*sum
   return cov
 
 def coeficiente_correlacion(x,y):
@@ -199,8 +199,17 @@ def coeficiente_correlacion(x,y):
   Output:
     r: valor numérico correspondiente al coeficiente de correlación entre x e y
   """
-  covar = covarianza(x,y)
-  varx = varianza(x)
-  vary = varianza(y)
-  r = covar/(varx*vary)
+  x_prom = promedio(x)
+  y_prom = promedio(y)
+  sum_num = 0
+  for i,j in zip(x,y):
+    sum_num += ((i-x_prom)*(j-y_prom))
+
+  sum_denx = 0
+  sum_deny = 0
+  for i,j in zip(x,y):
+    sum_denx += (i-x_prom)**2
+    sum_deny += (j-y_prom)**2
+  den = ( sum_denx*sum_deny )**( 1/2 )
+  r = sum_num/den
   return r
