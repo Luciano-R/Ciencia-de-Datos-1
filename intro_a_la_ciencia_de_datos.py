@@ -87,7 +87,7 @@ def rango(lista):
   """
   lista_sorted = sorted(lista)
   val_min = lista_sorted[0]
-  val_max = lista_sorted[-1]
+  val_max = lista_sorted[len(lista_sorted)-1]
 
   rango = val_max - val_min
 
@@ -151,9 +151,6 @@ def rango_intercuartilico(lista):
 
   IQR = Q3-Q1
   return IQR
-
-listax = [1,2,6,2,4,6,2,54,7,3,4,1,5]
-rangox = rango_intercuartilico(listax)
 
 def MAD(lista):
   """
