@@ -135,19 +135,21 @@ def rango_intercuartilico(lista):
   Output:
     cuartiles: valor numérico correspondiente al rango intercuartílico
   """
-  if len(lista)%2==0:
-    Q1_index1 = len(lista)//4
+  lista_sorted = sorted(lista)
+
+  if len(lista_sorted)%2==0:
+    Q1_index1 = len(lista_sorted)//4
     Q1_index2 = Q1_index1-1
-    Q3_index1 = (len(lista)*3)//4
+    Q3_index1 = (len(lista_sorted)*3)//4
     Q3_index2 = Q3_index1-1
-    Q1 = (float(lista[Q1_index1]) + float(lista[Q1_index2]))/2
-    Q3 = (float(lista[Q3_index1]) + float(lista[Q3_index2]))/2
+    Q1 = (float(lista_sorted[Q1_index1]) + float(lista_sorted[Q1_index2]))/2
+    Q3 = (float(lista_sorted[Q3_index1]) + float(lista_sorted[Q3_index2]))/2
 
   else:
-    Q1_index = len(lista)//4
-    Q3_index = (len(lista)*3)//4
-    Q1 = float(lista[Q1_index])
-    Q3 = float(lista[Q3_index])
+    Q1_index = len(lista_sorted)//4
+    Q3_index = (len(lista_sorted)*3)//4
+    Q1 = float(lista_sorted[Q1_index])
+    Q3 = float(lista_sorted[Q3_index])
 
   IQR = Q3-Q1
   return IQR
